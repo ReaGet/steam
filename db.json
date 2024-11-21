@@ -1,0 +1,32 @@
+{
+  "accounts": [
+    {
+      "login": "rifat2125",
+      "password": "Anuzaz45",
+      "region": "US",
+      "isAuthenticated": false,
+      "createdAt": "2024-11-21T13:34:39.054Z",
+      "updatedAt": "2024-11-21T13:34:39.054Z",
+      "id": 1
+    }
+  ],
+  "gifts": [
+    {
+      "title": "123",
+      "link": "https://store.steampowered.com/app/1282100/REMNANT_II/",
+      "price": 1,
+      "createdAt": "2024-11-21T13:30:16.377Z",
+      "updatedAt": "2024-11-21T13:30:16.377Z",
+      "id": 1
+    },
+    {
+      "title": "asd",
+      "link": "https://store.steampowered.com/app/835570/Conquerors_Blade/",
+      "price": 2,
+      "updatedAt": "2024-11-21T13:41:01.832Z",
+      "id": 2
+    }
+  ],
+  "logs": [],
+  "twoFactorAuth": []
+}
