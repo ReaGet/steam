@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { SteamAccount } from '@/types/account';
+import { SessionManager } from '@/lib/session';
 
 interface AccountCardProps {
   account: SteamAccount;
@@ -14,7 +15,25 @@ export function AccountCard({ account, onEdit, onDelete, onAuthenticate }: Accou
   const handleAuthenticate = async () => {
     setIsAuthenticating(true);
     try {
+      const response = await fetch('/api/accounts/authenticate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ accountId: account.id }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Authentication failed');
+      }
+
+      const { cookies } = await response.json();
+      
+      // Сохраняем сессию
+      SessionManager.saveSession(account.id, cookies);
+      
       await onAuthenticate(account.id);
+    } catch (error) {
+      console.error('Authentication error:', error);
+      alert('Failed to authenticate account');
     } finally {
       setIsAuthenticating(false);
     }
@@ -56,7 +75,7 @@ export function AccountCard({ account, onEdit, onDelete, onAuthenticate }: Accou
         <button
           onClick={handleAuthenticate}
           disabled={isAuthenticating}
-          className="px-3 py-1 text-sm border rounded hover:bg-gray-50 text-blue-600"
+          className="px-3 py-1 text-sm border rounded hover:bg-gray-50 text-blue-600 disabled:opacity-50"
         >
           {isAuthenticating ? 'Authenticating...' : 'Authenticate'}
         </button>

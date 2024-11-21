@@ -27,6 +27,27 @@
       "id": 2
     }
   ],
-  "logs": [],
+  "logs": [
+    {
+      "accountId": "system",
+      "action": "authenticate",
+      "status": "error",
+      "details": "No authenticated account found for region US",
+      "timestamp": "2024-11-21T13:51:30.673Z",
+      "createdAt": "2024-11-21T13:51:30.674Z",
+      "updatedAt": "2024-11-21T13:51:30.674Z",
+      "id": 1
+    },
+    {
+      "accountId": "system",
+      "action": "authenticate",
+      "status": "error",
+      "details": "Authentication failed",
+      "timestamp": "2024-11-21T13:55:27.719Z",
+      "createdAt": "2024-11-21T13:55:27.721Z",
+      "updatedAt": "2024-11-21T13:55:27.721Z",
+      "id": 2
+    }
+  ],
   "twoFactorAuth": []
 }
